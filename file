@@ -1,2 +1,2 @@
-
-
+-- main.lua
+-- List of messages and corresponding faceslocal messages = {    {text = "Hello! I'm ChatGPT", face = "🤖"},    {text = "I can help you with Lua scripting", face = "😎"},    {text = "Let's make fun projects!", face = "😁"},    {text = "Orange!", face = "🍊"}}local index = 1local timer = 0local interval = 2 -- seconds between messagesfunction love.load()    love.graphics.setBackgroundColor(0.1, 0.1, 0.1) -- dark background    font = love.graphics.newFont(30)    love.graphics.setFont(font)endfunction love.update(dt)    timer = timer + dt    if timer > interval then        timer = 0        index = index + 1        if index > #messages then            index = 1        end    endendfunction love.draw()    local msg = messages[index]    love.graphics.setColor(1, 1, 1)    love.graphics.printf(msg.text, 50, 200, love.graphics.getWidth() - 100, "center")    love.graphics.printf(msg.face, 50, 300, love.graphics.getWidth() - 100, "center")end
